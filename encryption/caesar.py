@@ -1,4 +1,4 @@
-from encryption import EncryptionMethod, alphabet
+from base import EncryptionMethod, alphabet
 
 class CeaserEncryption(EncryptionMethod):
     def __init__(self):
@@ -13,10 +13,10 @@ class CeaserEncryption(EncryptionMethod):
         
         # the value after shifting the character
         index_after_shift = list(alphabet).index(char) - shift
-        
+
         # if the index after shift is longer than length, then loop around
         if index_after_shift >= len(alphabet):
-            return alphabet[abs(index_after_shift - (len(alphabet)))]
+            return alphabet[abs(index_after_shift - len(alphabet))]
         
         return alphabet[index_after_shift]
     
@@ -31,7 +31,7 @@ class CeaserEncryption(EncryptionMethod):
 
         # if the index after shift is longer than length, then loop around
         if index_after_shift >= len(alphabet):
-            return alphabet[abs(index_after_shift - (len(alphabet)))]
+            return alphabet[abs(index_after_shift - len(alphabet))]
 
         return alphabet[index_after_shift]
     

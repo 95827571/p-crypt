@@ -1,4 +1,4 @@
-from encryption import EncryptionMethod, alphabet
+from base import EncryptionMethod, alphabet
 
 class AtbashEncryption(EncryptionMethod):
     def __init__(self):
@@ -13,8 +13,7 @@ class AtbashEncryption(EncryptionMethod):
         
     # encrypts with atbash
     def encrypt(self, message: str) -> str:
-        message_split = list(message.lower())
-        reversed_chars = [self.__reverse_char(char) for char in message_split]
+        reversed_chars = [self.__reverse_char(char) for char in list(message.lower())]
         encrypted_result = ''.join(str(char) for char in reversed_chars)
 
         return encrypted_result

@@ -1,4 +1,4 @@
-from encryption import EncryptionMethod, alphabet
+from base import EncryptionMethod, alphabet
 
 class AffineEncryption(EncryptionMethod):
     def __init__(self):

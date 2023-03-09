@@ -1,9 +1,6 @@
-from encryption import EncryptionMethod
+from encryption import base, caesar, atbash, keyword_c, affine, vigenere
 import menu
-import caesar
-import atbash
-import keyword_c
-import affine
+
 
 def caeser_callback(response):
     try:
@@ -18,8 +15,7 @@ def caeser_callback(response):
     
     return True
 
-    
-def encrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
+def encrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,str]):
     user_input = input("What message would you like to encrypt?")
     match settings["method"]:
         case "Caesar":
@@ -36,9 +32,7 @@ def encrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
         
     print(encryption_method.encrypt(user_input))
 
-
-
-def decrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
+def decrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,str]):
     user_input = input("What cipher would you like to decrypt?")
     match settings["method"]:
         case "Caesar":
@@ -66,6 +60,8 @@ def manage_inputs(settings: dict[str,str]):
             encryption_method = affine.AffineEncryption()
         case "Keyword":
             encryption_method = keyword_c.KeywordEncryption()
+        case "Vigenere":
+            encryption_method = vigenere.VigenereEncryption()
 
     match settings["doing"]:
         case "Encrypt":
