@@ -20,7 +20,13 @@ class KeywordEncryption(EncryptionMethod):
         return alphabet[new_alphabet.index(char)] 
 
     def __grab_alphabet(self, keyword: str) -> list[str]:
-        new_alphabet = [char for char in list(keyword)]
+        new_alphabet = []
+        for char in list(keyword):
+            if char in new_alphabet:
+                continue
+
+            new_alphabet.append(char)
+
         for char in alphabet:
             if char in new_alphabet:
                 continue
