@@ -1,4 +1,4 @@
-from base import EncryptionMethod, alphabet
+from encryption.base import EncryptionMethod, alphabet
 
 class AtbashEncryption(EncryptionMethod):
     def __init__(self):
@@ -19,5 +19,5 @@ class AtbashEncryption(EncryptionMethod):
         return encrypted_result
 
     # decrypting literally just takes the encrypted message and re-reverses it LOL
-    def decrypt(self, encrypted_message: str) -> str:
-        return self.encrypt(encrypted_message)
+    def decrypt(self, cipher: str) -> str:
+        return self.encrypt(cipher)

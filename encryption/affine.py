@@ -1,4 +1,4 @@
-from base import EncryptionMethod, alphabet
+from encryption.base import EncryptionMethod, alphabet
 
 class AffineEncryption(EncryptionMethod):
     def __init__(self):
@@ -28,8 +28,8 @@ class AffineEncryption(EncryptionMethod):
         return encrypted_result
 
     #decrypts the message :)
-    def decrypt(self, encrypted_message: str) -> str:
-        message_split = encrypted_message.split("-")
+    def decrypt(self, cipher: str) -> str:
+        message_split = cipher.split("-")
         normal_chars = [self.__unconvert_char(char) for char in message_split]
         decrypted_result = ''.join(str(char) for char in normal_chars)
 

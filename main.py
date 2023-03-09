@@ -16,7 +16,7 @@ def caeser_callback(response):
     return True
 
 def encrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,str]):
-    user_input = input("What message would you like to encrypt?")
+    user_input = input("What message would you like to encrypt?\n")
     match settings["method"]:
         case "Caesar":
             shift_input = menu.ask_user_with_callback("How much would you like to shift to the left(- for right shift)?", caeser_callback)
@@ -28,7 +28,11 @@ def encrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,s
 
             print(encryption_method.encrypt(user_input, keyword_input))
             return
-        
+        case "Vigenere":
+            keyword_input = input("What keyword would you like to use?")
+
+            print(encryption_method.encrypt(user_input, keyword_input))
+            return
         
     print(encryption_method.encrypt(user_input))
 
@@ -41,11 +45,16 @@ def decrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,s
             print(encryption_method.decrypt(user_input, int(shift_input)))
             return
         case "Keyword":
-            keyword_input = input("What keyword would you like to use?")
+            keyword_input = input("What keyword would you like to use?\n")
 
             print(encryption_method.decrypt(user_input, keyword_input))
             return
-        
+        case "Vigenere":
+            keyword_input = input("What keyword would you like to use?\n")
+
+            print(encryption_method.decrypt(user_input, keyword_input))
+            return
+    
         
     print(encryption_method.decrypt(user_input))
 
@@ -69,7 +78,6 @@ def manage_inputs(settings: dict[str,str]):
         case "Decrypt":
             decrypt_input(encryption_method, settings)
 
-
 def main():
     settings = {
         "doing": "Encrypt",
@@ -78,10 +86,15 @@ def main():
 
     print(menu.textLogo)
 
-    settings["doing"] = menu.ask_user("What would you like to do?", "Encrypt", "Decrypt")
-    settings["method"] = menu.ask_user("What type of encryption?", "Caesar", "Atbash", "Affine", "Keyword")
+    while True:
+        settings["doing"] = menu.ask_user("What would you like to do?", "Encrypt", "Decrypt", "Exit")
 
-    manage_inputs(settings)
+        # Exits the loop exiting the program
+        if settings["doing"] == "Exit":
+            return
+
+        settings["method"] = menu.ask_user("What type of encryption?", "Caesar", "Atbash", "Affine", "Keyword", "Vigenere")
+        manage_inputs(settings)
 
 
 if __name__ == '__main__':

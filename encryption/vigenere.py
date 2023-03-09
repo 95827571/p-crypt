@@ -1,4 +1,4 @@
-from base import EncryptionMethod, alphabet
+from encryption.base import EncryptionMethod, alphabet
 
 class VigenereEncryption(EncryptionMethod):
     def __init__(self):
@@ -6,7 +6,7 @@ class VigenereEncryption(EncryptionMethod):
 
     def __shift_char_by_key_char(self, char: str, kw_char:str) -> str:
         if char not in alphabet or kw_char not in alphabet:
-            return
+            return char
         
         index_after_shift = list(alphabet).index(char) - list(alphabet).index(kw_char)
 
@@ -18,7 +18,7 @@ class VigenereEncryption(EncryptionMethod):
     
     def __unshift_char_by_key_char(self, char: str, kw_char:str) -> str:
         if char not in alphabet or kw_char not in alphabet:
-            return
+            return char
         
         index_after_shift = list(alphabet).index(char) + list(alphabet).index(kw_char)
 

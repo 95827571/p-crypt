@@ -32,7 +32,7 @@ def ask_user(question: str, *answers: str):
 def ask_user_with_callback(question: str, callback):
     user_input = None
     while True:
-        print(question)
+        print(f"{question}\n")
         user_input = input()
         if callback(user_input):
             break

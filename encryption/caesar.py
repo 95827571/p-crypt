@@ -1,4 +1,4 @@
-from base import EncryptionMethod, alphabet
+from encryption.base import EncryptionMethod, alphabet
 
 class CeaserEncryption(EncryptionMethod):
     def __init__(self):
@@ -44,8 +44,8 @@ class CeaserEncryption(EncryptionMethod):
         return encrypted_result
 
     # decrypts
-    def decrypt(self, encrypted_message: str, shift: int) -> str:
-        message_split = list(encrypted_message.lower())
+    def decrypt(self, cipher: str, shift: int) -> str:
+        message_split = list(cipher.lower())
         unshifted_chars = [self.__unshift_char(char, shift) for char in message_split]
         decrypted_result = ''.join(str(char) for char in unshifted_chars)
 
