@@ -1,3 +1,5 @@
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
 class EncryptionMethod():
     def __init__(self):
         pass

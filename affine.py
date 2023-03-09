@@ -1,6 +1,4 @@
-from encryption import EncryptionMethod
-
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+from encryption import EncryptionMethod, alphabet
 
 class AffineEncryption(EncryptionMethod):
     def __init__(self):

@@ -1,6 +1,4 @@
-from encryption import EncryptionMethod
-
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+from encryption import EncryptionMethod, alphabet
 
 class CeaserEncryption(EncryptionMethod):
     def __init__(self):
@@ -47,4 +45,3 @@ class CeaserEncryption(EncryptionMethod):
         decrypted_result = ''.join(str(char) for char in unshifted_chars)
 
         return decrypted_result
-
