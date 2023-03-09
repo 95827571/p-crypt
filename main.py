@@ -24,12 +24,12 @@ def encrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,s
             print(encryption_method.encrypt(user_input, int(shift_input)))
             return
         case "Keyword":
-            keyword_input = input("What keyword would you like to use?")
+            keyword_input = input("What keyword would you like to use?\n")
 
             print(encryption_method.encrypt(user_input, keyword_input))
             return
         case "Vigenere":
-            keyword_input = input("What keyword would you like to use?")
+            keyword_input = input("What keyword would you like to use?\n")
 
             print(encryption_method.encrypt(user_input, keyword_input))
             return
@@ -37,7 +37,7 @@ def encrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,s
     print(encryption_method.encrypt(user_input))
 
 def decrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,str]):
-    user_input = input("What cipher would you like to decrypt?")
+    user_input = input("What cipher would you like to decrypt?\n")
     match settings["method"]:
         case "Caesar":
             shift_input = menu.ask_user_with_callback("How much would you like to shift to the left(- for right shift)?", caeser_callback)
