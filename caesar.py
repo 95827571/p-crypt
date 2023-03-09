@@ -1,6 +1,6 @@
 from encryption import EncryptionMethod
 
-alphabet = 'abcdefghijklmnopqrstuv'
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 class CeaserEncryption(EncryptionMethod):
     def __init__(self):
@@ -19,7 +19,7 @@ class CeaserEncryption(EncryptionMethod):
     
     # unshifts a singular char by x amount
     def __unshift_char(self, char: str, shift: int) -> str:
-        # if the cahracter is not in the alphabet, we don't need to unshift
+        # if the character is not in the alphabet, we don't need to unshift
         if char not in list(alphabet):
             return char
 
