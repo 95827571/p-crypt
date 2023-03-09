@@ -1,4 +1,4 @@
-from encryption.base import EncryptionMethod, alphabet
+from encryption.base import EncryptionMethod, alphabet, check_index_to_alphabet
 
 class VigenereEncryption(EncryptionMethod):
     def __init__(self):
@@ -8,25 +8,17 @@ class VigenereEncryption(EncryptionMethod):
         if char not in alphabet or kw_char not in alphabet:
             return char
         
-        index_after_shift = list(alphabet).index(char) - list(alphabet).index(kw_char)
-
-        # if the index after shift is longer than length, then loop around
-        if index_after_shift >= len(alphabet):
-            return alphabet[abs(index_after_shift - len(alphabet))]
+        index_after_shift = list(alphabet).index(char) + list(alphabet).index(kw_char)
         
-        return alphabet[index_after_shift]
+        return alphabet[check_index_to_alphabet(index_after_shift)]
     
     def __unshift_char_by_key_char(self, char: str, kw_char:str) -> str:
         if char not in alphabet or kw_char not in alphabet:
             return char
         
-        index_after_shift = list(alphabet).index(char) + list(alphabet).index(kw_char)
-
-        # if the index after shift is longer than length, then loop around
-        if index_after_shift >= len(alphabet):
-            return alphabet[abs(index_after_shift - len(alphabet))]
+        index_after_shift = list(alphabet).index(char) - list(alphabet).index(kw_char)
         
-        return alphabet[index_after_shift]
+        return alphabet[check_index_to_alphabet(index_after_shift)]
 
     def encrypt(self, message: str, keyword: str) -> str:
         message_split = list(message.lower())

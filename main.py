@@ -17,46 +17,51 @@ def caeser_callback(response):
 
 def encrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,str]):
     user_input = input("What message would you like to encrypt?\n")
+    encrypted_message = ""
     match settings["method"]:
         case "Caesar":
             shift_input = menu.ask_user_with_callback("How much would you like to shift to the left(- for right shift)?", caeser_callback)
 
-            print(encryption_method.encrypt(user_input, int(shift_input)))
-            return
+            encrypted_message = encryption_method.encrypt(user_input, int(shift_input))
         case "Keyword":
             keyword_input = input("What keyword would you like to use?\n")
 
-            print(encryption_method.encrypt(user_input, keyword_input))
-            return
+            encrypted_message = encryption_method.encrypt(user_input, keyword_input)
         case "Vigenere":
             keyword_input = input("What keyword would you like to use?\n")
 
-            print(encryption_method.encrypt(user_input, keyword_input))
-            return
-        
-    print(encryption_method.encrypt(user_input))
+            encrypted_message = encryption_method.encrypt(user_input, keyword_input)
+        case _:
+            encrypted_message = encryption_method.encrypt(user_input)
+    
+    print("-"*menu.SEPARATOR_LENGTH)
+    print(f"Encrypted Message: {menu.TerminalColors.BRIGHT_CYAN}{encrypted_message}{menu.TerminalColors.ENDC} \
+| {menu.TerminalColors.BRIGHT_RED}Method: {settings['method']}{menu.TerminalColors.ENDC}")
+    print("-"*menu.SEPARATOR_LENGTH)
 
 def decrypt_input(encryption_method: base.EncryptionMethod, settings: dict[str,str]):
     user_input = input("What cipher would you like to decrypt?\n")
+    decrypted_cipher = ""
     match settings["method"]:
         case "Caesar":
             shift_input = menu.ask_user_with_callback("How much would you like to shift to the left(- for right shift)?", caeser_callback)
 
-            print(encryption_method.decrypt(user_input, int(shift_input)))
-            return
+            decrypted_cipher = encryption_method.decrypt(user_input, int(shift_input))
         case "Keyword":
             keyword_input = input("What keyword would you like to use?\n")
 
-            print(encryption_method.decrypt(user_input, keyword_input))
-            return
+            decrypted_cipher = encryption_method.decrypt(user_input, keyword_input)
         case "Vigenere":
             keyword_input = input("What keyword would you like to use?\n")
 
-            print(encryption_method.decrypt(user_input, keyword_input))
-            return
+            decrypted_cipher = encryption_method.decrypt(user_input, keyword_input)
+        case _:
+            decrypted_cipher = encryption_method.decrypt(user_input)
     
-        
-    print(encryption_method.decrypt(user_input))
+    print("-"*menu.SEPARATOR_LENGTH)
+    print(f"Decryption Result: {menu.TerminalColors.BRIGHT_CYAN}{decrypted_cipher}{menu.TerminalColors.ENDC} \
+| {menu.TerminalColors.BRIGHT_RED}Method: {settings['method']}{menu.TerminalColors.ENDC}")
+    print("-"*menu.SEPARATOR_LENGTH)
 
 def manage_inputs(settings: dict[str,str]):
     encryption_method = None
