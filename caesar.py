@@ -7,7 +7,7 @@ class CeaserEncryption(EncryptionMethod):
         super().__init__()
 
 
-    # shifts a singular char by x amount
+    # shifts a singular char by x amount to the left
     def __shift_char(self, char: str, shift: int) -> str:
         # if the character is not in the alphabet, then just don't shift it
         if char not in list(alphabet):
