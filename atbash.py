@@ -13,7 +13,7 @@ class AtbashEncryption(EncryptionMethod):
         
     # encrypts with atbash
     def encrypt(self, message: str) -> str:
-        message_split = list(message)
+        message_split = list(message.lower())
         reversed_chars = [self.__reverse_char(char) for char in message_split]
         encrypted_result = ''.join(str(char) for char in reversed_chars)
 

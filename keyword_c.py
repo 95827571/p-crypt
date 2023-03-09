@@ -37,16 +37,16 @@ class KeywordEncryption(EncryptionMethod):
 
 
     def encrypt(self, message: str, keyword: str) -> str:
-        new_alphabet = self.__grab_alphabet(keyword)
-        shifted_message = [self.__keyword_shift_char(char, new_alphabet) for char in list(message)]
+        new_alphabet = self.__grab_alphabet(keyword.lower())
+        shifted_message = [self.__keyword_shift_char(char, new_alphabet) for char in list(message.lower())]
         encrypted_result = ''.join(str(char) for char in shifted_message)
 
         return encrypted_result
         
 
     def decrypt(self, encrypted_message: str, keyword: str):
-        new_alphabet = self.__grab_alphabet(keyword)
-        unshifted_message = [self.__keyword_unshift_char(char, new_alphabet) for char in list(encrypted_message)]
+        new_alphabet = self.__grab_alphabet(keyword.lower())
+        unshifted_message = [self.__keyword_unshift_char(char, new_alphabet) for char in list(encrypted_message.lower())]
         decrypted_result = ''.join(str(char) for char in unshifted_message)
 
         return decrypted_result

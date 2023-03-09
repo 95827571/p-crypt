@@ -13,6 +13,11 @@ class CeaserEncryption(EncryptionMethod):
         
         # the value after shifting the character
         index_after_shift = list(alphabet).index(char) - shift
+        
+        # if the index after shift is longer than length, then loop around
+        if index_after_shift >= len(alphabet):
+            return alphabet[abs(index_after_shift - (len(alphabet)))]
+        
         return alphabet[index_after_shift]
     
     # unshifts a singular char by x amount
@@ -32,7 +37,7 @@ class CeaserEncryption(EncryptionMethod):
     
     # encrypts
     def encrypt(self, message: str, shift: int) -> str:
-        message_split = list(message)
+        message_split = list(message.lower())
         shifted_chars = [self.__shift_char(char, shift) for char in message_split]
         encrypted_result = ''.join(str(char) for char in shifted_chars)
 
@@ -40,7 +45,7 @@ class CeaserEncryption(EncryptionMethod):
 
     # decrypts
     def decrypt(self, encrypted_message: str, shift: int) -> str:
-        message_split = list(encrypted_message)
+        message_split = list(encrypted_message.lower())
         unshifted_chars = [self.__unshift_char(char, shift) for char in message_split]
         decrypted_result = ''.join(str(char) for char in unshifted_chars)
 

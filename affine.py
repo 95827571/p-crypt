@@ -21,7 +21,7 @@ class AffineEncryption(EncryptionMethod):
     
     # encrypts the message
     def encrypt(self, message: str) -> str:
-        message_split = list(message)
+        message_split = list(message.lower())
         converted_chars = [self.__convert_char(char) for char in message_split]
         encrypted_result = ''.join(f"{str(char)}-" for char in converted_chars)
 
