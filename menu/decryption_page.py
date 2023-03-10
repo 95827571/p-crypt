@@ -6,6 +6,8 @@ import logs
 def decrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
     user_input = input("What cipher would you like to decrypt?\n")
     decrypted_cipher = ""
+
+    # finds which method we are doing
     match settings["method"]:
         case "Caesar":
             shift_input = ask_user_with_callback("How much would you like to shift to the left(- for right shift)?", caeser_callback)
@@ -24,6 +26,8 @@ def decrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
 
     os.system('cls' if os.name == 'nt' else 'clear')
     print(textLogo)
+
+    # outputs
     print("-"*SEPARATOR_LENGTH)
     print(f"Decryption Result: {TerminalColors.BRIGHT_CYAN}{decrypted_cipher}{TerminalColors.ENDC} \
 | {TerminalColors.BRIGHT_RED}Method: {settings['method']}{TerminalColors.ENDC}")

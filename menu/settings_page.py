@@ -1,5 +1,6 @@
 from menu import multi_checkbox, textLogo
 import os
+import json
 
 logs = True
 save_keys = True
@@ -17,6 +18,9 @@ def exit_callback():
     exit_settings = not exit_settings
 
 def settings_options():
+    # f = open("config.json")
+    # json_object = json.load(f)
+    # f.close()
     os.system('cls' if os.name == 'nt' else 'clear')
     print(textLogo)
     multi_checkbox(

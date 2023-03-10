@@ -9,3 +9,8 @@ Encryption Method: Vigenere
 Output: eoqwqe pa ad hepadbl
 Time: 10/03/2023 10:15:01
 --------------------------------------------------
+Task: Encrypt
+Encryption Method: Vigenere
+Output: ecgiaamqca wv ghx pruh gbukas
+Time: 10/03/2023 13:53:42
+--------------------------------------------------

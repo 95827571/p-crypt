@@ -7,6 +7,8 @@ import logs
 def encrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
     user_input = input("What message would you like to encrypt?\n")
     encrypted_message = ""
+
+    # finds which method we are doing
     match settings["method"]:
         case "Caesar":
             shift_input = ask_user_with_callback("How much would you like to shift to the left(- for right shift)?", caeser_callback)
@@ -22,6 +24,7 @@ def encrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
             encrypted_message = encryption_method.encrypt(user_input, keyword_input)
         case _:
             encrypted_message = encryption_method.encrypt(user_input)
+    
     
     os.system('cls' if os.name == 'nt' else 'clear')
     print(textLogo)
