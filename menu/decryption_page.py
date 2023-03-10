@@ -1,6 +1,7 @@
 from encryption import EncryptionMethod
 from menu import ask_user_with_callback, SEPARATOR_LENGTH, TerminalColors, caeser_callback, textLogo
 import os
+import logs
 
 def decrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
     user_input = input("What cipher would you like to decrypt?\n")
@@ -27,3 +28,5 @@ def decrypt_input(encryption_method: EncryptionMethod, settings: dict[str,str]):
     print(f"Decryption Result: {TerminalColors.BRIGHT_CYAN}{decrypted_cipher}{TerminalColors.ENDC} \
 | {TerminalColors.BRIGHT_RED}Method: {settings['method']}{TerminalColors.ENDC}")
     print("-"*SEPARATOR_LENGTH)
+
+    logs.append_log(settings["doing"], settings["method"], decrypted_cipher)
