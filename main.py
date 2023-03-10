@@ -1,5 +1,6 @@
 from encryption import caesar, atbash, keyword_c, affine, vigenere
-from menu import decryption_page, encryption_page, settings_page
+from converter import hexadecimal
+from menu import decryption_page, encryption_page, settings_page, convert_page
 import menu
 import os
 import json
@@ -32,6 +33,16 @@ def manage_settings():
             os.system('cls' if os.name == 'nt' else 'clear')
             print(menu.textLogo)
             break
+
+def manage_conversion(task_settings: dict[str,str]):
+    task_method = None
+    match task_settings["method"]:
+        case "Hexadecimal":
+            task_method = hexadecimal.HexadecimalConverter()
+
+    convert_page.conversion_input(task_method, task_settings)
+
+    
 
 # Creates the settings config
 def create_settings():
@@ -72,6 +83,7 @@ def main():
         # Conversion page
         elif task_settings["doing"] == "Convert":
             task_settings["method"] = menu.ask_user("Conversion?", "Hexadecimal")
+            manage_conversion(task_settings)
         # Settings page
         elif task_settings["doing"] == "Settings":
             manage_settings()

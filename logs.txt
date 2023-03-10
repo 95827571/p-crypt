@@ -14,3 +14,8 @@ Encryption Method: Vigenere
 Output: ecgiaamqca wv ghx pruh gbukas
 Time: 10/03/2023 13:53:42
 --------------------------------------------------
+Task: Encrypt
+Encryption Method: Vigenere
+Output: ecgiaamqca wv ghx pruh gbukas
+Time: 10/03/2023 15:29:29
+--------------------------------------------------
