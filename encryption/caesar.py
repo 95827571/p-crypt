@@ -1,4 +1,4 @@
-from encryption.base import EncryptionMethod, alphabet, check_index_to_alphabet
+from encryption import EncryptionMethod, alphabet, check_index_to_alphabet
 
 class CeaserEncryption(EncryptionMethod):
     def __init__(self):
