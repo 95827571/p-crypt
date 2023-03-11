@@ -1,6 +1,7 @@
 from os import path
 import os
 from datetime import datetime
+from settings.save import grab_settings_key
 
 LOGS_FILENAME = "logs.txt"
 
@@ -14,6 +15,9 @@ Time: {now.strftime('%d/%m/%Y %H:%M:%S')}\n\
 
 
 def append_log(task: str, encryption_method: str, output: str):
+    if not grab_settings_key("logs"):
+        return
+
     if not path.isfile(LOGS_FILENAME):
         file = open(LOGS_FILENAME, "w")
         file.write(f"{'-'*50}" + format_log(task, encryption_method, output))
@@ -28,6 +32,9 @@ def append_log(task: str, encryption_method: str, output: str):
         file.close()    
 
 def append_custom_log(log: str):
+    if not grab_settings_key("logs"):
+        return
+
     if not path.isfile(LOGS_FILENAME):
         file = open(LOGS_FILENAME, "w")
         file.write(f"{'-'*50}\n{log}\n{'-'*50}")
