@@ -1,0 +1,111 @@
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Vigenere
+Output: ecgiaamqca wv ghx pruh gbukas
+Time: 10/03/2023 10:14:23
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Vigenere
+Output: eoqwqe pa ad hepadbl
+Time: 10/03/2023 10:15:01
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Vigenere
+Output: ecgiaamqca wv ghx pruh gbukas
+Time: 10/03/2023 13:53:42
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Vigenere
+Output: ecgiaamqca wv ghx pruh gbukas
+Time: 10/03/2023 15:29:29
+--------------------------------------------------
+Input: 687847673
+Output: 28FFB8F9
+Conversion: Decimal > Hex
+Time: 10/03/2023 15:38:01
+--------------------------------------------------
+Input: 77847763
+Output: 4A3DCD3
+Conversion: Decimal > Hex
+Time: 10/03/2023 15:38:23
+--------------------------------------------------
+Input: 9AF4E
+Output: 634702
+Conversion: Hex > Decimal
+Time: 10/03/2023 15:38:45
+--------------------------------------------------
+Input: 6868393964
+Output: 0110011001011000110101111111101100
+Conversion: Decimal > Binary
+Time: 10/03/2023 18:09:25
+--------------------------------------------------
+Input: 0110011001011000110101111111101100
+Output: 6868393964
+Conversion: Binary > Decimal
+Time: 10/03/2023 18:09:48
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Vigenere
+Output: ecgiaamqca wv ghx pruh gbukas
+Time: 11/03/2023 11:08:17
+--------------------------------------------------
+Task: Decrypt
+Encryption Method: Atbash
+Output: each network component is physically connected to a central node such as a router, hub or switch
+Time: 13/03/2023 10:03:56
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Affine
+Output: 8-5-12-12-15- -9- -1-13- -16-8-9-12-9-16- -1-14-4- -9- -1-13- -7-15-1-20-
+Time: 13/03/2023 18:50:50
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Affine
+Output: 0.0
+Time: 13/03/2023 18:51:13
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Affine
+Output: 5.600007716566324e-05
+Time: 13/03/2023 18:52:10
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Affine
+Output: 6.949994713068008e-05
+Time: 13/03/2023 18:55:09
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Railfence
+Output: io ena vaxdlelar
+Time: 14/03/2023 17:26:50
+--------------------------------------------------
+Task: Decrypt
+Encryption Method: Railfence
+Output: ie xeronvdl aala
+Time: 14/03/2023 17:27:05
+--------------------------------------------------
+Task: Decrypt
+Encryption Method: Railfence
+Output: ie xeronvdl aala
+Time: 14/03/2023 17:27:20
+--------------------------------------------------
+Task: Decrypt
+Encryption Method: Railfence
+Output: i eovl aaexrndal
+Time: 14/03/2023 17:27:38
+--------------------------------------------------
+Task: Decrypt
+Encryption Method: Railfence
+Output: i eovl aaexrndal
+Time: 14/03/2023 17:28:00
+--------------------------------------------------
+Task: Encrypt
+Encryption Method: Railfence
+Output: i n adllroeavxea
+Time: 14/03/2023 17:28:08
+--------------------------------------------------
+Task: Decrypt
+Encryption Method: Railfence
+Output: i lova alexndrae
+Time: 14/03/2023 17:28:24
+--------------------------------------------------

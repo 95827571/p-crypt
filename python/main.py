@@ -1,10 +1,13 @@
-from encryption import caesar, atbash, keyword_c, affine, vigenere
+from encryption import caesar, atbash, keyword_c, affine, vigenere, railfence
 from converter import hexadecimal, binary
 from menu import decryption_page, encryption_page, settings_page, convert_page
+from settings.save import create_settings
 import menu
 import os
-import json
 
+
+# !IMPORTANT: Implement asking for keys and shifts inside of the actual encryption function to reduce size of the menu files
+# TODO: Recreate menu and file structure
 
 def manage_encryption(task_settings: dict[str,str]):
     task_method = None
@@ -19,6 +22,8 @@ def manage_encryption(task_settings: dict[str,str]):
             task_method = keyword_c.KeywordEncryption()
         case "Vigenere":
             task_method = vigenere.VigenereEncryption()
+        case "Railfence":
+            task_method = railfence.RailfenceEncryption()
 
     match task_settings["doing"]:
         case "Encrypt":
@@ -45,18 +50,6 @@ def manage_conversion(task_settings: dict[str,str]):
     convert_page.conversion_input(task_method, task_settings)
 
 
-# Creates the settings config
-def create_settings():
-    if not os.path.exists("config.json"):
-        settings = {
-            "logs": True,
-            "save_keys": False
-        }
-        json_object = json.dumps(settings, indent=4)
-        file = open("config.json", "w")
-        file.write(json_object)
-        file.close()
-
 def main():
     # Clears the screen and prints p crypt
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -79,7 +72,7 @@ def main():
 
         # Encryption page
         if task_settings["doing"] == "Encrypt" or task_settings["doing"] == "Decrypt": 
-            task_settings["method"] = menu.ask_user("Method?", "Caesar", "Atbash", "Affine", "Keyword", "Vigenere")
+            task_settings["method"] = menu.ask_user("Method?", "Caesar", "Atbash", "Affine", "Keyword", "Vigenere", "Railfence")
             manage_encryption(task_settings)
         # Conversion page
         elif task_settings["doing"] == "Convert":
